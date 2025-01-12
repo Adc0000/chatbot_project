@@ -1,70 +1,162 @@
-/* Basic page styling */
+/* 🌙 Dark Mode Background */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    overflow: hidden;
 }
 
-/* Chat container styling */
+/* 💎 Glassmorphism Chat Container */
 .chat-container {
     width: 400px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Chat messages box */
-#chat-box {
-    width: 100%;
-    height: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    overflow-y: auto;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-}
-
-/* Input field and button */
-.input-container {
+    height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-#user-input {
-    width: 75%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* 📝 Chat Box Styling */
+#chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #6c63ff transparent;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-left: 5px;
-    cursor: pointer;
+/* 🎨 Custom Scrollbar */
+#chat-box::-webkit-scrollbar {
+    width: 6px;
 }
 
-button:hover {
-    background-color: #0056b3;
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: #6c63ff;
+    border-radius: 10px;
 }
 
-/* Chat message styling */
+/* 💬 Message Bubbles */
+.user-message, .bot-message {
+    max-width: 75%;
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    animation: slideIn 0.5s ease;
+}
+
 .user-message {
-    text-align: right;
-    color: #333;
-    margin-bottom: 5px;
+    background-color: #6c63ff;
+    color: white;
+    align-self: flex-end;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
 }
 
 .bot-message {
-    text-align: left;
-    color: #007bff;
-    margin-bottom: 5px;
+    background-color: #ffffff;
+    color: #333;
+    align-self: flex-start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✍️ Input Field and Send Button */
+.input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#user-input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+#user-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#user-input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/* 🚀 Animated Send Button */
+button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #6c63ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
+}
+
+button:hover {
+    background-color: #564dc9;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(108, 99, 255, 0.6);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* 🌟 Animations */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 📱 Mobile test Responsiveness */
+@media (max-width: 500px) {
+    .chat-container {
+        width: 90%;
+        height: 90%;
+    }
+
+    .user-message, .bot-message {
+        max-width: 90%;
+    }
 }

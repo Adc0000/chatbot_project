@@ -2,4 +2,33 @@ get flask
 get nltk
 http://127.0.0.1:5001/
 
-only works while running, ctrl c to stop.
+Getting Started
+Want to run this project on your computer? Just follow these steps:
+
+Download or clone the project.
+
+Install Flask if you don’t have it:
+
+bash
+Copy code
+'pip install flask"
+Run the server:
+
+bash
+Copy code
+'python app.py'
+Open your browser and go to:
+
+
+Copy code
+web 'http://127.0.0.1:5001/'
+And that’s it.
+
+
+      🔨 Tech Stack
+      What is used:
+
+Python 3 – The brain of the bot.
+Flask – To run the web server smoothly.
+HTML & CSS – For structure and styling.
+JavaScript – To make the chat feel instant and interactive.
